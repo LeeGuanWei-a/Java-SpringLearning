@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--scope="singleton"单例模式,对象在调用配置文件时创建，默认为singleton
+    scope="prototype"多例模式，对象在调用getBean()时创建-->
+    <bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl" init-method="init" destroy-method="destory"></bean>
+
+</beans>
