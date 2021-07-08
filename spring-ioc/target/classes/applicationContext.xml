@@ -16,5 +16,7 @@
     <!--<bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>-->
 
     <bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl"></bean>
-    <bean id="userService" class="cn.com.spring.service.impl.UserServiceImpl"></bean>
+    <bean id="userService" class="cn.com.spring.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
 </beans>

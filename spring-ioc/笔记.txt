@@ -7,4 +7,4 @@
 4.调用核心配置文件application.xml，获取到对应的Bean
 5.使用Bean进行相应的操作
 6.创建Service及其实现，复杂的数据库访问操作
-7.Service层调用Dao层
+7.Service层调用Dao层,依赖注入
