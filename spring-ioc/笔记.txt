@@ -9,4 +9,3 @@
 6.创建Service及其实现，复杂的数据库访问操作
 7.Service层调用Dao层,依赖注入
 8.当需要配置的属性过多时可以分解成多个xml文件，使用import导入
-![img_1.png](img.png)
