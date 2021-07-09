@@ -3,12 +3,14 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/spring-aop" />
     <file type="web" url="file://$PROJECT_DIR$/spring-ioc" />
+    <file type="web" url="file://$PROJECT_DIR$/spring-ioc-anno" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/spring-aop/pom.xml" />
         <option value="$PROJECT_DIR$/spring-ioc/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-ioc-anno/pom.xml" />
       </list>
     </option>
   </component>
