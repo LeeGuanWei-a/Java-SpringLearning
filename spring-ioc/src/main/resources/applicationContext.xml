@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--对象实例化-->
     <!--方法一：无参构造方法实例化，常用-->
     <!--scope="singleton"单例模式,对象在调用配置文件时创建，默认为singleton
     scope="prototype"多例模式，对象在调用getBean()时创建-->
@@ -15,8 +17,64 @@
     <!--<bean id="factory" class="cn.com.spring.factory.DynamicFactory"></bean>-->
     <!--<bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>-->
 
-    <bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl"></bean>
-    <bean id="userService" class="cn.com.spring.service.impl.UserServiceImpl">
+
+    <!--依赖注入，将dao注入service，解耦-->
+    <!--<bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl"></bean>-->
+    <!--方法一：使用set()进行依赖注入-->
+<!--    <bean id="userService" class="cn.com.spring.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
+    </bean>-->
+
+    <!--方法二：p命名空间方法依赖注入,本质也是set()方法注入，但更方便-->
+    <!--<bean id="userService" class="cn.com.spring.service.impl.UserServiceImpl" p:userDao-ref="userDao"/>-->
+
+    <!--方法三：构造方法注入，默认无参构造-->
+    <!--普通属性注入-->
+<!--    <bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl">
+        <property name="userame" value="liguanwei"/>
+        <property name="age" value="23"/>
+    </bean>-->
+
+    <!--复杂数据类型注入-->
+    <bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl">
+        <property name="stringList">
+            <list>
+                <value>liguanwei</value>
+                <value>aa</value>
+                <value>bb</value>
+            </list>
+        </property>
+        
+        <property name="userMap">
+            <map>
+                <entry key="u1" value-ref="user1"></entry>
+                <entry key="u2" value-ref="user2"></entry>
+            </map>
+        </property>
+        
+        <property name="properties">
+            <props>
+                <prop key="p1">aa</prop>
+                <prop key="p2">bb</prop>
+            </props>
+        </property>
     </bean>
+
+    <bean id="user1" class="cn.com.spring.domain.User">
+        <property name="name" value="tom"/>
+        <property name="age" value="25"/>
+    </bean>
+
+    <bean id="user2" class="cn.com.spring.domain.User">
+        <property name="name" value="jerry"/>
+        <property name="age" value="25"/>
+    </bean>
+
+    <bean id="userService" class="cn.com.spring.service.impl.UserServiceImpl">
+        <constructor-arg name="userDao" ref="userDao"></constructor-arg>
+    </bean>
+
+
+    <!--避免复杂的属性配置，拆分为多个xml文件使用import导入，分模块开发-->
+    <import resource="applicationContext-user.xml"/>
 </beans>

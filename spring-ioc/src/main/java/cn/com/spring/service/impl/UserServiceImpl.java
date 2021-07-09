@@ -9,9 +9,18 @@ public class UserServiceImpl implements UserService {
 
     private UserDao userDao;
 
-    public void setUserDao(UserDao userDao) {
+    //构造方法注入
+    public UserServiceImpl() {
+    }
+
+    public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
+
+    //set()方法注入
+/*    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }*/
 
 /*    @Override
     public void save() {
