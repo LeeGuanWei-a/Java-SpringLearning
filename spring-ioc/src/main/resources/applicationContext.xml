@@ -8,7 +8,7 @@
     <!--方法一：无参构造方法实例化，常用-->
     <!--scope="singleton"单例模式,对象在调用配置文件时创建，默认为singleton
     scope="prototype"多例模式，对象在调用getBean()时创建-->
-    <!--<bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl" init-method="init" destroy-method="destory"></bean>-->
+    <!--<bean id="userDao" class="cn.com.UserDaoImpl" init-method="init" destroy-method="destory"></bean>-->
 
     <!--方法二：静态工厂实例化-->
     <!--<bean id="userDao" class="cn.com.spring.factory.StaticFactory" factory-method="getUserDao"></bean>-->
@@ -19,24 +19,24 @@
 
 
     <!--依赖注入，将dao注入service，解耦-->
-    <!--<bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl"></bean>-->
+    <!--<bean id="userDao" class="cn.com.UserDaoImpl"></bean>-->
     <!--方法一：使用set()进行依赖注入-->
-<!--    <bean id="userService" class="cn.com.spring.service.impl.UserServiceImpl">
+<!--    <bean id="userService" class="cn.com.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
     </bean>-->
 
     <!--方法二：p命名空间方法依赖注入,本质也是set()方法注入，但更方便-->
-    <!--<bean id="userService" class="cn.com.spring.service.impl.UserServiceImpl" p:userDao-ref="userDao"/>-->
+    <!--<bean id="userService" class="cn.com.UserServiceImpl" p:userDao-ref="userDao"/>-->
 
     <!--方法三：构造方法注入，默认无参构造-->
     <!--普通属性注入-->
-<!--    <bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl">
+<!--    <bean id="userDao" class="cn.com.UserDaoImpl">
         <property name="userame" value="liguanwei"/>
         <property name="age" value="23"/>
     </bean>-->
 
     <!--复杂数据类型注入-->
-    <bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl">
+    <bean id="userDao" class="cn.com.UserDaoImpl">
         <property name="stringList">
             <list>
                 <value>liguanwei</value>
@@ -70,7 +70,7 @@
         <property name="age" value="25"/>
     </bean>
 
-    <bean id="userService" class="cn.com.spring.service.impl.UserServiceImpl">
+    <bean id="userService" class="cn.com.UserServiceImpl">
         <constructor-arg name="userDao" ref="userDao"></constructor-arg>
     </bean>
 
