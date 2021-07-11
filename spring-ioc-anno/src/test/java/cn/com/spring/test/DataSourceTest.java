@@ -1,4 +1,4 @@
-package test;
+package cn.com.spring.test;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.mchange.v2.c3p0.ComboPooledDataSource;

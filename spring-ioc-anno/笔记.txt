@@ -19,3 +19,8 @@
 @PostConstruct:在方法上标注表示是Bean的初始化方法
 @PreDestory:在方法上标注表示是Bean的销毁方法
 6.简化application.xml文件官方的Bean，使用新注解config.*
+7.Spring集成JUnit
+    7.1导入依赖
+    7.2使用@Runwith注解替换原来的运行类
+    7.3使用@ContextConfiguration指定配置文件或配置类
+    7.4使用@Autowired注入需要测试的对象

@@ -13,6 +13,9 @@
         <element id="directory" name="classes">
           <element id="module-output" name="spring-aop" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/spring-aop/target/spring-aop/META-INF/MANIFEST.MF" />

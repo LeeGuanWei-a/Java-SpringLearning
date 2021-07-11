@@ -33,8 +33,8 @@
         <property name="password" value="${jdbc.password}"/>
     </bean>
 
-<!--    <bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl"></bean>-->
-<!--    <bean id="userService" class="cn.com.spring.service.impl.UserServiceImpl">
+<!--    <bean id="userDao" class="cn.com.spring.dao.impl.UserDaoImpl"></bean>
+    <bean id="userService" class="cn.com.spring.service.impl.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
     </bean>-->
 
